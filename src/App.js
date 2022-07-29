@@ -1,5 +1,8 @@
-function App() {
-  return <div></div>;
-}
+import React from "react";
+import TodoList from "./pages/TodoList";
+
+const App = () => {
+  return <TodoList />;
+};
 
 export default App;
