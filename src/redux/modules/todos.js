@@ -1,6 +1,7 @@
 // Action Value
 const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
+const TOGGLE_STATUS = "TOGGLE_STATUS";
 
 // Action Creator
 export const addTodo = (payload) => {
@@ -9,6 +10,10 @@ export const addTodo = (payload) => {
 
 export const deleteTodo = (payload) => {
   return { type: DELETE_TODO, payload };
+};
+
+export const toggleStatus = (payload) => {
+  return { type: TOGGLE_STATUS, payload };
 };
 
 // Initial State
@@ -28,6 +33,19 @@ const todos = (state = initialState, action) => {
       return [...state, action.payload];
     case DELETE_TODO:
       return [...state.filter((todo) => todo.id !== action.payload)];
+    case TOGGLE_STATUS:
+      return [
+        ...state.map((todo) => {
+          if (todo.id === action.payload) {
+            return {
+              ...todo,
+              isDone: !todo.isDone,
+            };
+          } else {
+            return todo;
+          }
+        }),
+      ];
     default:
       return state;
   }

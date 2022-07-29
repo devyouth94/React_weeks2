@@ -10,19 +10,23 @@ const List = () => {
     <div>
       <StyledSection>
         <h2>Working</h2>
-        <div>
+        <StyledBox>
           {todos.map((todo) => {
             if (!todo.isDone) {
               return <Todo key={todo.id} todo={todo} />;
-            } else {
-              return null;
             }
           })}
-        </div>
+        </StyledBox>
       </StyledSection>
       <StyledSection>
         <h2>Done</h2>
-        <div></div>
+        <StyledBox>
+          {todos.map((todo) => {
+            if (todo.isDone) {
+              return <Todo key={todo.id} todo={todo} />;
+            }
+          })}
+        </StyledBox>
       </StyledSection>
     </div>
   );
@@ -32,7 +36,6 @@ const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
   border: 1px solid orange;
-  height: 500px;
 
   h2 {
     display: flex;
@@ -41,6 +44,11 @@ const StyledSection = styled.section`
     padding: 0 20px;
     border: 1px solid magenta;
   }
+`;
+
+const StyledBox = styled.div`
+  display: flex;
+  flex-wrap: wrap;
 `;
 
 export default List;
