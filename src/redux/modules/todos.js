@@ -1,9 +1,14 @@
 // Action Value
 const ADD_TODO = "ADD_TODO";
+const DELETE_TODO = "DELETE_TODO";
 
 // Action Creator
 export const addTodo = (payload) => {
   return { type: ADD_TODO, payload };
+};
+
+export const deleteTodo = () => {
+  return { type: DELETE_TODO };
 };
 
 // Initial State
