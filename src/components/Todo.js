@@ -1,14 +1,22 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
+import { deleteTodo } from "../redux/modules/todos";
 
 const Todo = ({ todo }) => {
+  const dispatch = useDispatch();
+
+  const onDeleteHandler = () => {
+    dispatch(deleteTodo(todo.id));
+  };
+
   return (
     <StyledTodo>
       <a>상세보기</a>
       <h3>{todo.title}</h3>
       <p>{todo.body}</p>
       <div>
-        <button>삭제하기</button>
+        <button onClick={onDeleteHandler}>삭제하기</button>
         <button>{todo.isDone ? "취소" : "완료"}</button>
       </div>
     </StyledTodo>
