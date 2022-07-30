@@ -14,6 +14,8 @@ const List = () => {
           {todos.map((todo) => {
             if (!todo.isDone) {
               return <Todo key={todo.id} todo={todo} />;
+            } else {
+              return null;
             }
           })}
         </StyledBox>
@@ -24,6 +26,8 @@ const List = () => {
           {todos.map((todo) => {
             if (todo.isDone) {
               return <Todo key={todo.id} todo={todo} />;
+            } else {
+              return null;
             }
           })}
         </StyledBox>

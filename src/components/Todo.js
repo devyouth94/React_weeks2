@@ -1,5 +1,6 @@
 import React from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { deleteTodo, toggleStatus } from "../redux/modules/todos";
 
@@ -16,7 +17,7 @@ const Todo = ({ todo }) => {
 
   return (
     <StyledTodo>
-      <a>상세보기</a>
+      <Link to={`/detail/${todo.id}`}>상세보기</Link>
       <h3>{todo.title}</h3>
       <p>{todo.body}</p>
       <div>

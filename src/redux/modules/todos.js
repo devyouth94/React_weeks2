@@ -2,6 +2,7 @@
 const ADD_TODO = "ADD_TODO";
 const DELETE_TODO = "DELETE_TODO";
 const TOGGLE_STATUS = "TOGGLE_STATUS";
+// const GET_TODO_BY_ID = "GET_TODO_BY_ID";
 
 // Action Creator
 export const addTodo = (payload) => {
@@ -15,6 +16,10 @@ export const deleteTodo = (payload) => {
 export const toggleStatus = (payload) => {
   return { type: TOGGLE_STATUS, payload };
 };
+
+// export const getTodoById = (payload) => {
+//   return { type: GET_TODO_BY_ID, payload };
+// };
 
 // Initial State
 const initialState = [
@@ -46,6 +51,8 @@ const todos = (state = initialState, action) => {
           }
         }),
       ];
+    // case GET_TODO_BY_ID:
+    //   return [state.find((todo) => todo.id === parseInt(action.payload))];
     default:
       return state;
   }
