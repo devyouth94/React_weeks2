@@ -6,12 +6,13 @@ import { addTodo } from "../redux/modules/todos";
 let number = 1;
 
 const Form = () => {
+  const dispatch = useDispatch();
+
   const initialState = {
     title: "",
     body: "",
   };
   const [todo, setTodo] = useState(initialState);
-  const dispatch = useDispatch();
 
   const onChangeHandler = (event) => {
     const { name, value } = event.target;
@@ -23,7 +24,6 @@ const Form = () => {
     if (todo.title.trim() === "" || todo.body.trim() === "") {
       return alert("내용을 입력하세요!");
     }
-
     dispatch(
       addTodo({
         id: number,

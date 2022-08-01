@@ -10,7 +10,7 @@ const Header = () => {
   );
 };
 
-const StyledHeader = styled.div`
+const StyledHeader = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
