@@ -20,7 +20,7 @@ const Form = () => {
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    if (todo.title === "" || todo.body === "") {
+    if (todo.title.trim() === "" || todo.body.trim() === "") {
       return alert("내용을 입력하세요!");
     }
 
@@ -40,21 +40,21 @@ const Form = () => {
     <StyledForm onSubmit={onSubmitHandler}>
       <StyledInputGroup>
         <label>제목</label>
-        <input
+        <StyledInput
           type="text"
           name="title"
           value={todo.title}
           onChange={onChangeHandler}
         />
         <label>내용</label>
-        <input
+        <StyledInput
           type="text"
           name="body"
           value={todo.body}
           onChange={onChangeHandler}
         />
       </StyledInputGroup>
-      <button>추가하기</button>
+      <StyledButton>추가하기</StyledButton>
     </StyledForm>
   );
 };
@@ -62,14 +62,46 @@ const Form = () => {
 const StyledForm = styled.form`
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 20px;
-  border: 1px solid blue;
+  height: 40px;
 `;
 
 const StyledInputGroup = styled.div`
   display: flex;
   align-items: center;
   gap: 12px;
+
+  label {
+    font-size: 18px;
+    font-weight: 400;
+  }
+`;
+
+const StyledInput = styled.input`
+  border: transparent;
+  width: 250px;
+  height: 30px;
+  border-radius: 15px;
+  box-sizing: border-box;
+  padding: 0 15px;
+  &:focus {
+    outline-color: #437299;
+  }
+`;
+
+const StyledButton = styled.button`
+  font-family: omnigothic, sans-serif;
+  width: 100px;
+  height: 35px;
+  color: #437299;
+  border-radius: 17.5px;
+  border: 1.5px solid #437299;
+  &:hover {
+    color: #fff;
+    background-color: #437299;
+    transition: 0.3s;
+  }
 `;
 
 export default Form;

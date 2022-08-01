@@ -6,12 +6,11 @@ const Layout = (props) => {
 };
 
 const StyledLayout = styled.div`
-  background-color: aliceblue;
+  background-color: #eee;
   max-width: 1200px;
   min-width: 800px;
-  height: 100vh;
-
-  margin: 0 auto;
+  height: 100%;
+  margin: 12vh auto;
 `;
 
 export default Layout;

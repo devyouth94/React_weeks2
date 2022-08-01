@@ -17,15 +17,19 @@ const Todo = ({ todo }) => {
 
   return (
     <StyledTodo>
-      <Link to={`/detail/${todo.id}`}>상세보기</Link>
       <h3>{todo.title}</h3>
       <p>{todo.body}</p>
-      <div>
-        <button onClick={onDeleteHandler}>삭제하기</button>
-        <button onClick={toggleStatusHandler}>
+      <StyledButtonGroup>
+        <StyledTodoButton color="#4285F4">
+          <Link to={`/detail/${todo.id}`}>상세보기</Link>
+        </StyledTodoButton>
+        <StyledTodoButton color="#34A853" onClick={toggleStatusHandler}>
           {todo.isDone ? "취소" : "완료"}
-        </button>
-      </div>
+        </StyledTodoButton>
+        <StyledTodoButton color="#EA4335" onClick={onDeleteHandler}>
+          삭제하기
+        </StyledTodoButton>
+      </StyledButtonGroup>
     </StyledTodo>
   );
 };
@@ -35,11 +39,44 @@ const StyledTodo = styled.div`
   flex-direction: column;
   justify-content: space-between;
 
-  width: 25%;
-  height: 150px;
+  background-color: #fff;
+
+  flex-basis: 24.93%;
+  height: 250px;
   padding: 20px;
   box-sizing: border-box;
-  border: 1px solid green;
+
+  h3 {
+    font-weight: 600;
+    font-size: 24px;
+  }
+
+  p {
+    color: #555;
+  }
+`;
+
+const StyledButtonGroup = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+`;
+
+const StyledTodoButton = styled.button`
+  font-family: omnigothic, sans-serif;
+  font-size: 12px;
+  width: 30%;
+  height: 20px;
+  background-color: #fff;
+  color: ${(props) => props.color};
+  border-radius: 10px;
+  border: 1.5px solid ${(props) => props.color};
+  &:hover {
+    color: #fff;
+    background-color: ${(props) => props.color};
+    transition: 0.3s;
+  }
 `;
 
 export default Todo;

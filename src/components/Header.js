@@ -4,8 +4,8 @@ import styled from "styled-components";
 const Header = () => {
   return (
     <StyledHeader>
-      <h1>My Todo List</h1>
-      <p>React</p>
+      <h1>나의 투두 리스트</h1>
+      <p>리액트</p>
     </StyledHeader>
   );
 };
@@ -15,9 +15,21 @@ const StyledHeader = styled.div`
   align-items: center;
   justify-content: space-between;
 
-  height: 70px;
-  border: 1px solid red;
+  background-color: #003458;
+  height: 100px;
   padding: 0 20px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #fff;
+  }
+
+  p {
+    font-size: 18px;
+    font-weight: 400;
+    color: #fff;
+  }
 `;
 
 export default Header;

@@ -39,20 +39,22 @@ const List = () => {
 const StyledSection = styled.section`
   display: flex;
   flex-direction: column;
-  border: 1px solid orange;
 
   h2 {
+    font-weight: 600;
+    color: #fff;
     display: flex;
     align-items: center;
-    height: 50px;
+    height: 70px;
     padding: 0 20px;
-    border: 1px solid magenta;
+    background-color: #437299;
   }
 `;
 
 const StyledBox = styled.div`
   display: flex;
   flex-wrap: wrap;
+  gap: 1px;
 `;
 
 export default List;

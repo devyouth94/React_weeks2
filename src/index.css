@@ -25,6 +25,14 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 body {
+	font-family: omnigothic, sans-serif;
+	font-style: normal;
+
+	background-image: url('https://g-grafolio.pstatic.net/20220409_233/1649509840231S8339_JPEG/006-original.jpg');
+	background-attachment: fixed;
+	background-size: cover;
+	background-position: center center;
+
 	line-height: 1;
 }
 ol, ul {
