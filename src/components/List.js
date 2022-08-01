@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Todo from "./Todo";
 
 const List = () => {
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos.todos);
 
   return (
     <div>

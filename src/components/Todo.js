@@ -21,7 +21,7 @@ const Todo = ({ todo }) => {
       <p>{todo.body}</p>
       <StyledButtonGroup>
         <StyledTodoButton color="#4285F4">
-          <Link to={`/detail/${todo.id}`}>상세보기</Link>
+          <Link to={`/${todo.id}`}>상세보기</Link>
         </StyledTodoButton>
         <StyledTodoButton color="#34A853" onClick={toggleStatusHandler}>
           {todo.isDone ? "취소" : "완료"}

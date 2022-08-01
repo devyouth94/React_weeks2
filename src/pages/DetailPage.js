@@ -5,37 +5,29 @@ import { getTodoById } from "../redux/modules/todos";
 import styled from "styled-components";
 
 const DetailPage = () => {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const { id } = useParams();
 
-  // useEffect(() => {
-  //   dispatch(getTodoById(id));
-  // }, []);
+  useEffect(() => {
+    dispatch(getTodoById(id));
+  }, [dispatch, id]);
 
-  const todos = useSelector((state) => state.todos);
+  const todos = useSelector((state) => state.todos.todo);
 
   return (
-    <>
-      {todos.map((todo) => {
-        if (todo.id === parseInt(id)) {
-          return (
-            <StyledDetail key={todo.id}>
-              <div>
-                <p>ID: {todo.id}</p>
-                <StyledDetailButton onClick={() => navigate("/")}>
-                  이전으로
-                </StyledDetailButton>
-              </div>
-              <div>
-                <h1>{todo.title}</h1>
-                <p>{todo.body}</p>
-              </div>
-            </StyledDetail>
-          );
-        }
-      })}
-    </>
+    <StyledDetail key={todos.id}>
+      <div>
+        <p>ID: {todos.id}</p>
+        <StyledDetailButton onClick={() => navigate("/")}>
+          이전으로
+        </StyledDetailButton>
+      </div>
+      <div>
+        <h1>{todos.title}</h1>
+        <p>{todos.body}</p>
+      </div>
+    </StyledDetail>
   );
 };
 
